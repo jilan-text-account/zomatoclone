@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+header{
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+.logo{
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 0 15px;
+}
+.icon{
+    display: none;
+}
+.closeicon{
+    display: none;
+}
+.navbar ul{
+    display: flex;
+    gap: 4px;
+}
+.navbar ul li{
+    list-style-type: none;
+    color: white;
+}
+
+.navbar ul li button{
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.navbar ul li button:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+}
+.one{
+    background-color: rgb(185, 78, 78);
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    box-shadow: #ee4300de;
+}
+.one div{
+    position: relative;
+    top: 220px;
+}
+.one h1{
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.one input{
+    width: 60%;
+    height: 50px;
+}
+.one button{
+    margin-left: -40px;
+    border: none;
+    cursor: pointer;
+}
+#no-results {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+}
+#items{
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.item{
+    width: 20vw;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 7px;
+    background-color: white;
+    margin: 9px;
+}
+.item:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+.item input{
+    width: 100%;
+}
+.item img{
+    width: 100%;
+    height: 70%;
+}
+.item button{
+    width: 100%;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.item button:hover{
+    opacity: 0.9;
+}
+#two{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-color: gainsboro;
+    background-size: cover;
+    display: flex;
+}
+#two img{
+    width: 50%;
+    height: 100%;
+}
+.inputform{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(190, 188, 187);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.form h2{
+    font-size: 2rem;
+}
+.form input{
+    height: 35px;
+    width: 80%;
+    border-radius: 3px;
+    padding: 0px 5px;
+}
+.appaddress{
+ margin-top: 20px;
+ padding: auto;
+}
+.applink{
+    display: flex;
+    justify-content: flex-start;
+}
+footer{
+    height: 30vh;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    padding: 120px 0px;
+}
+
+/* this css for highlighting */
+.highlighted {
+    background-color: yellow;
+  }
+
+
+@media (max-width: 600px){
+    header{
+        height: 10vh;
+    }
+    .logo{
+        margin-left: 0 10px;
+    }
+    .icon{
+        display: flex;
+        padding-right: 10px;
+        font-size: 20px;
+        color: white;
+    }
+    .closeicon{
+        display: flex;
+        position: absolute;
+        right: 10px;
+    }
+    .navbar{
+        visibility: hidden;
+        position: absolute;
+        top: 10vh;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 35vh;
+        background-color: black;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .active{
+        visibility: visible;
+    }
+    .navbar ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .navbar ul li form button{
+        border: none;
+        color: white;
+        background-color: black;
+    }
+    .navbar ul li form button:hover{
+        background-color: white;
+        color: black;
+    }
+}
