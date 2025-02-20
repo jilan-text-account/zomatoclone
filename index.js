@@ -6,6 +6,7 @@ import upload from "express-fileupload";
 const app=express();
 const port=4000;
 
+// give database details of posgresql
  const db=new pg.Client({
      user:"your user name",
      host:"host name",
