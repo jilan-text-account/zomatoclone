@@ -7,10 +7,10 @@ const app=express();
 const port=4000;
 
  const db=new pg.Client({
-     user:"your username",
-     host:"your hostname",
-     password:"your password",
-     database:"database name",
+     user:"yourUsername",
+     host:"localhost",
+     password:"yourPassword",
+     database:"mydatabase",
      port:0000,
  });
 
