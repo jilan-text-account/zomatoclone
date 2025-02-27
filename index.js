@@ -7,11 +7,11 @@ const app=express();
 const port=4000;
 
  const db=new pg.Client({
-     user:"postgres",
-     host:"Localhost",
-     password:"Naik@220",
-     database:"zomato food",
-     port:5432,
+     user:"your username",
+     host:"your hostname",
+     password:"your password",
+     database:"database name",
+     port:0000,
  });
 
  db.connect();
