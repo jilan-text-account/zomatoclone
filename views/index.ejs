@@ -1,0 +1,136 @@
+<%- include ('partials/header.ejs'); -%>
+<header>
+    <div class="logo">Zomato</div>
+    <div class="icon" onclick="showmenu()"><i class="fa-solid fa-bars"></i></div>
+    <nav class="navbar">
+        <button class="closeicon" onclick="closemenu()"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li>
+                <form action="/" method="get">
+                    <button type="submit">Home</button>
+                </form>
+            </li>
+            <li>
+                <form action="/about" method="get">
+                    <button type="submit">About</button>
+                </form>
+            </li>
+            <li>
+                <form action="/contact" method="get">
+                    <button type="submit">Contact us</button>
+                </form>
+            </li>
+            <li>
+                <form action="/help" method="get">
+                    <button type="submit">Help</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section class="one">
+    <div>
+        <h1>Search for what do you want !! </h1>
+        <input id="search-input" type="text">
+        <button id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div id="no-results">No matching items found...</div>
+</section>
+<section id="items">
+    <form class="item" action="/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Enter item name">
+        <input type="file" name="file">
+        <input type="text" name="description" placeholder="Enter content of item">
+        <button type="submit">+</button>
+    </form>
+    <% for(let i = 0; i < listItems.length; i++){ %>
+    <div class="item">
+        <h1><%= listItems[i].title %></h1>
+        <div>
+            <% if (images[i]) { %>
+                <img src="data:image/jpeg;base64,<%= images[i] %>" alt="Image">
+            <% } %>
+        </div>
+        <p><%= listItems[i].description %></p>
+        <button onclick="showAlert(this)">Order</button>
+        <form action="/delete" method="post">
+            <input type="text" onchange="this.form.submit()" name="listItemsId" value="<%= listItems[i].id %>" hidden>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+    <% } %>
+
+</section>
+<section id="two">
+    <div class="inputform">
+        <img src="/assets/mobile.avif">
+     <div>
+        <div class="form">
+         <h2>Register your login</h2>
+         <p>fill your creditentials</p>
+         <input for="phone" placeholder="Phone Number" required><br>
+         <input for="email" placeholder="Give Correct Email address" required>
+         <div class="appaddress">
+            <h2>Download app from </h2>
+            <div class="applink">
+             <a href="https://zomato.onelink.me/xqzv/CTA" target="_blank"><img src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"></a>
+             <a href="https://zomato.onelink.me/xqzv/CTA" target="_blank"><img src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png"></a>
+            </div>
+        </div>
+     </div>
+    </div>
+</section>
+<script>
+    function showmenu(){
+        $(".navbar").addClass("active");
+        console.log("clicked to show menu");
+    }
+    function closemenu(){
+        $(".navbar").removeClass("active");
+        console.log("clicked to close menu");
+    }
+
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
+  const noResults=document.getElementById('no-results');
+  const items = document.querySelectorAll('.item');
+
+  searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value.toLowerCase(); // Case-insensitive search
+    let resultsFound=false;
+
+    items.forEach(item => {
+      const itemName = item.textContent.toLowerCase();
+      item.classList.remove('highlighted'); // Remove previous highlights
+
+      if (itemName.includes(searchTerm)) {
+        item.classList.add('highlighted');
+        item.scrollIntoView({behavior: 'smooth'});
+        resultsFound=true;
+      }
+    });
+
+    searchInput.value = ''; // Clear the search input after search (optional)
+    noResults.style.display=resultsFound ? 'none' : 'block'; 
+
+  });
+
+   // Optional: Highlight on Enter key press
+   searchInput.addEventListener('keyup', (event) => {
+       if (event.key === 'Enter') {
+           searchButton.click();
+       }
+   });
+
+   function showAlert(button){
+    const card=button.parentElement;
+    const tittle=card.querySelector('h1').innerText;
+    alert('this item you have ordered '+ tittle);
+   }
+
+
+</script>
+<script src="../src/index.js" type="text/js"></script>
+
+<%- include ('partials/footer.ejs'); -%>

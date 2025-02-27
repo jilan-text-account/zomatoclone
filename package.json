@@ -1,0 +1,33 @@
+{
+  "name": "5-capstone---todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "buffer": "^6.0.3",
+    "Buffer": "^0.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.21.0",
+    "express-fileupload": "^1.5.1",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "query": "^0.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0"
+  }
+}
